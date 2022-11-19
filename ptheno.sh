@@ -5,14 +5,24 @@ case $1 in
     ;;
 
     link)
+    mv $2 $PTHENODIR/active/${PWD##*/}/$2
     ln -s $PTHENODIR/active/${PWD##*/}/$2 $2
+    ;;
+
+    unlink)
+    mv $PTHENODIR/active/${PWD##*/}/$2 $2
     ;;
 
     save)
     case $2 in
         "")
         name=$(cat "$PTHENODIR/active/name")
-        [ -z $name ] && echo please provide a name && exit
+        [ -z $name ] && echo "Please provide a name" && exit
+        if [ -f $PTHENODIR/styles/$name ]; then
+            echo A style called $name already exists. Would you like to overwrite it? [y/n]
+            read response
+            [ $response != "y"] && exit
+        fi
         ;;
 
         *)
