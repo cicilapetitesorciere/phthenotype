@@ -6,6 +6,7 @@ case $1 in
     ;;
 
     link)
+    mkdir -p $PTHENODIR/active/${PWD##*/}
     mv $2 $PTHENODIR/active/${PWD##*/}/$2
     ln -s $PTHENODIR/active/${PWD##*/}/$2 $2
     ;;
