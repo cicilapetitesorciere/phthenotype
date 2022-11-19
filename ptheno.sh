@@ -1,10 +1,7 @@
-#!/bin/sh
-
-PTHENODIR=~/.config/phthenotype
-
 case $1 in
     load)
-    cp $PTHENODIR/styles/$2/* $PTHENODIR/active
+    rm -r $PTHENODIR/active/*
+    cp -r $PTHENODIR/styles/$2/* $PTHENODIR/active
     ;;
 
     link)

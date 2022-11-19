@@ -1,16 +1,10 @@
 #!/bin/sh
 
-cp ptheno.sh ~/.local/bin/ptheno
-chmod +x ~/.local/bin/ptheno 
+INSTALL_PATH=~/.local/bin/
 
-: '
-# Doing tests to see if there are config files the installation would have to overwrite
-if test -f "../waybar/style.css"; then 
-    echo "Waybar config detected. Would you like to overwrite your current Waybar config? [y/n]"
-    read response
-    if [ "$response" != "y" ]; then
-        echo "Aborting installation"
-        exit
-    fi
-fi
-'
+#!([ -f install.sh ] && [ -f ptheno.sh]) && echo "Error: Please go to the directory that has the install script before installing" && exit
+
+(echo \#\!/bin/sh && echo PTHENODIR=$(pwd) && cat ptheno.sh) > $INSTALL_PATH/ptheno
+chmod +x $INSTALL_PATH/ptheno
+
+#echo "Success!"
