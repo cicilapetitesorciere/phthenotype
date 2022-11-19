@@ -2,6 +2,7 @@ case $1 in
     load)
     rm -r $PTHENODIR/active/*
     cp -r $PTHENODIR/styles/$2/* $PTHENODIR/active
+    sway reload
     ;;
 
     link)
