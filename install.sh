@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INSTALL_PATH=~/.local/bin/
+INSTALL_PATH=~/.local/bin
 
 #!([ -f install.sh ] && [ -f ptheno.sh]) && echo "Error: Please go to the directory that has the install script before installing" && exit
 
