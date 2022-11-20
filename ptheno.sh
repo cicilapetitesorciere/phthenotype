@@ -4,12 +4,12 @@ case $1 in
     load)
     rm -r $PTHENODIR/active/*
     cp -r $PTHENODIR/styles/$2/* $PTHENODIR/active
-    sway reload
+    sway reload > /dev/null
     ;;
 
     link)
     mkdir -p $PTHENODIR/active/${PWD##*/}
-    mv $2 $PTHENODIR/active/${PWD##*/}/$2
+    [ -f $2 ] && mv $2 $PTHENODIR/active/${PWD##*/}/$2
     ln -s $PTHENODIR/active/${PWD##*/}/$2 $2
     ;;
 
