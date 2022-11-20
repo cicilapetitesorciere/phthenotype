@@ -1,5 +1,3 @@
-complete -W "save load link unlink status ls rm" ptheno
-
 case $1 in
     load)
     rm -r $PTHENODIR/active/*
