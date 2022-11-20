@@ -2,7 +2,7 @@
 A quick and easy style changer. I've designed it with Sway, Waybar, Wofi, and Alacritty in mind; but it should be usuable for just about anything whose look can be changed by switching out a configuration file. You can see a quick demo here https://youtu.be/irEh6uH5V30
 
 # Installation
-Clone the repo, `cd` into it and execute `./install.sh`. Then link whichever programs you would like synchronized with it as follows
+Clone the repo, `cd` into it and execute `./install.sh` (NOTE: Make sure that `~/.local/bin` is in the path). Then link whichever programs you would like synchronized with it as follows
 
 ## Sway
 ```
@@ -13,7 +13,7 @@ ptheno link wallpaper.jpg
 
 Then add the following lines to your Sway config
 ```
-output * bg wallpaper.jpg
+output * bg wallpaper.jpg fill
 include style
 ```
 
