@@ -48,6 +48,11 @@ case $1 in
     ls $PTHENODIR/styles
     ;;
 
+    home)
+    echo $PTHENODIR
+    ;;
+
+
     status)
     echo Current style: $(cat "$PTHENODIR/active/name")
     #echo Supports: $(cd $PTHENODIR/active; ls -d */)
