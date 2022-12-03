@@ -1,0 +1,6 @@
+output * bg wallpaper.png fill
+
+#                BORDER    FILL      TEXT      HIGHLIGHT
+client.focused   "#af546a" "#af546a" "#ffffcc" "#ffffcc"
+client.unfocused "#251e3e" "#262738" "#af8b97" "#ffffcc"
+

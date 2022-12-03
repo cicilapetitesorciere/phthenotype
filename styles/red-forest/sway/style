@@ -1,2 +1,5 @@
-client.focused "#251e3e" "#851e3e" "#f6dec9" "#ffffff"
+output * bg wallpaper.jpg fill
+
+#                BORDER    FILL      TEXT      HIGHLIGHT
+client.focused   "#851e3e" "#851e3e" "#f6dec9" "#ffffff"
 client.unfocused "#251e3e" "#251e3e" "#f6dec9" "#00ff00"

@@ -8,7 +8,6 @@ Clone the repo, `cd` into it and execute `./install.sh` (NOTE: Make sure that `~
 ```
 cd ~/.config/sway
 ptheno link style
-ptheno link wallpaper.jpg
 ```
 
 Then add the following lines to your Sway config
