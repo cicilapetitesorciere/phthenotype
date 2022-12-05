@@ -12,7 +12,6 @@ ptheno link style
 
 Then add the following lines to your Sway config
 ```
-output * bg wallpaper.jpg fill
 include style
 ```
 
