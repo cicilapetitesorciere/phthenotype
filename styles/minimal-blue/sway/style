@@ -1,0 +1,6 @@
+output * bg #3b8aeb solid_color
+
+#                BORDER    FILL      TEXT      HIGHLIGHT
+client.focused   "#1b6acb" "#1b6acb" "#ffffff" "#ffffff"
+client.unfocused "#ffffff" "#ffffff" "#1b6acb" "#ffffff"
+

@@ -1,0 +1,7 @@
+output * bg #000000 solid_color
+gaps inner 0
+
+#                BORDER    FILL      TEXT      HIGHLIGHT
+client.focused   "#00aa00" "#00aa00" "#000000" "#ffffff"
+client.unfocused "#000000" "#000000" "#00aa00" "#ffffff"
+
