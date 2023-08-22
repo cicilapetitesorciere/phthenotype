@@ -146,7 +146,7 @@ case $1 in
         rm $(which ptheno)
     done
 
-    cp ptheno $INSTALL_PATH
+    cp ptheno.sh $INSTALL_PATH/ptheno
     chmod +x $INSTALL_PATH/ptheno
     if $(! command -v ptheno > /dev/null); then
         echo Cannot run ptheno. Please make sure $INSTALL_PATH is in your path
@@ -157,7 +157,7 @@ case $1 in
     mkdir -p $PTHENODIR
     mkdir -p $PTHENODIR/active
     cp -r styles $PTHENODIR/styles
-    touch linked.txt
+    touch $PTHENODIR/linked.txt
     ;; #####################################################
     
     help) #####################################################
