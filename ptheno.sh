@@ -154,6 +154,7 @@ case $1 in
     mkdir -p $PTHENODIR
     mkdir -p $PTHENODIR/active
     cp -r styles $PTHENODIR/styles
+    cp completion.sh $PTHENODIR
     # touch $PTHENODIR/linked.txt
 
     exit 0
