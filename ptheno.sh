@@ -32,15 +32,10 @@ case $1 in
 
     for file in ${@:2}
     do
-        [ ! -f $file ] && echo "Error: no file $file" && exit 1
-    done
-
-    for file in ${@:2}
-    do
         mkdir -p $PTHENODIR/active/${PWD##*/}
-        mv $file $PTHENODIR/active/${PWD##*/}/$file
+        [ -f $file ] && mv $file $PTHENODIR/active/${PWD##*/}/$file
         ln -s $PTHENODIR/active/${PWD##*/}/$file $file
-        echo $(pwd)/$file > $PTHENODIR/linked.txt
+        # echo $(pwd)/$file > $PTHENODIR/linked.txt
     done
 
     exit 0
@@ -60,7 +55,7 @@ case $1 in
     for file in ${@:2}
     do
         mv $PTHENODIR/active/${PWD##*/}/$file $file
-        sed -i "/^$(pwd)/$file\$/d" $PTHENODIR/linked.txt
+        # sed -i "/^$(echo "${$(pwd)//\//\\/}")/$file\$/d" $PTHENODIR/linked.txt
     done
 
     exit 0
@@ -79,7 +74,7 @@ case $1 in
     ;; #####################################################
 
     save) #####################################################
-    if [ -z "$2"]; then
+    if [ -z "$2" ]; then
         name=$(cat "$PTHENODIR/active/name")
         [ -z $name ] && echo "Error: The curren't style's name cannot be found. Please provide a name using $0 save <name>" && exit 1
         if [ -f $PTHENODIR/styles/$name ]; then
@@ -89,6 +84,7 @@ case $1 in
         fi
     else
         name=$2
+        echo $name > $PTHENODIR/active/name
     fi
     rm -rf $PTHENODIR/styles/$name
     cp -r $PTHENODIR/active $PTHENODIR/styles/$name
@@ -104,7 +100,7 @@ case $1 in
 
     for style in ${@:2}
     do
-        [ ! -f $PTHENODIR/styles/$style ] && echo "Error: style $style does not exist" && exit 1
+        [ ! -d $PTHENODIR/styles/$style ] && echo "Error: style $style does not exist" && exit 1
     done
 
     for style in ${@:2}
@@ -146,18 +142,22 @@ case $1 in
         rm $(which ptheno)
     done
 
-    cp ptheno.sh $INSTALL_PATH/ptheno
+    cp $(pwd)/$0 $INSTALL_PATH/ptheno
     chmod +x $INSTALL_PATH/ptheno
     if $(! command -v ptheno > /dev/null); then
         echo Cannot run ptheno. Please make sure $INSTALL_PATH is in your path
         rm $INSTALL_PATH/ptheno
         exit 1
     fi
+    
 
     mkdir -p $PTHENODIR
     mkdir -p $PTHENODIR/active
     cp -r styles $PTHENODIR/styles
-    touch $PTHENODIR/linked.txt
+    # touch $PTHENODIR/linked.txt
+
+    exit 0
+
     ;; #####################################################
     
     help) #####################################################
